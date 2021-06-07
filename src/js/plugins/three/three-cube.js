@@ -9,8 +9,8 @@ const createCube = scene => {
   scene.add(mesh);
 
   const animation = () => {
-    mesh.rotation.x += 0.01;
-    mesh.rotation.y += 0.02;
+    // mesh.rotation.x = -window.face.translationY*0.5;
+    // mesh.rotation.y = -window.face.translationX*0.5;
   };
   scene.animationQueue.push(animation);
 };

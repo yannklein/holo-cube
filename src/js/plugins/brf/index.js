@@ -76,11 +76,14 @@ const initBrf = () => {
   
     let doDrawFaceDetection = !_brfv5Config.enableFaceTracking
   
-    if(_brfv5Config.enableFaceTracking) {
+    if(_brfv5Config.enableFaceTracking) { 
   
       const sizeFactor = Math.min(_width, _height) / 480.0
       const faces      = _brfv5Manager.getFaces()
-  
+      
+      broadcastFaceInfo(faces);
+      
+      // console.log(faces[0].translationX);
       for(let i = 0; i < faces.length; i++) {
   
         const face = faces[i]
@@ -110,6 +113,16 @@ const initBrf = () => {
   
     requestAnimationFrame(trackFaces)
   }
+
+  const broadcastFaceInfo = (faces) => {
+    // console.log(_width, _height);
+  
+    window.face = {
+      translationX: (faces[0].translationX / _width) - 0.5,
+      translationY: (faces[0].translationY / _height) - 0.5
+    };
+  }
 }
+
 
 export { initBrf };

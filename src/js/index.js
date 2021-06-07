@@ -1,7 +1,12 @@
 import '../styles/index.scss';
 
 import initThree from './plugins/three/three-init';
-import { initBrf } from './plugins/brf/index'
+import { initBrf } from './plugins/brf/index';
+
+window.face = {
+  translationX: 0,
+  translationY: 0
+}
 
 console.log(
   `%c Yann's ThreeJS boilerplate`,
